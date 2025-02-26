@@ -36,8 +36,27 @@ Student:
 init(string student){
     student studentString = student
     stringstream parser
+    string tempStreet
+    string tempCity
+    string tempState
+    string tempZip
+    string tempDate
+    string tempHours
     parser.str(studentString);
     getline(parser, student lName, ',')
     getline(parser, student fName, ',')
-    getline(parser, )
+    getline(parser, tempStreet, ',')
+    getline(parser, tempCity, ',')
+    getline(parser, tempState, ',')
+    getline(parser, tempZip, ',')
+    student address->init(tempStreet, tempCity, tempState, tempZip)
+    getline(parser, tempDate, ',')
+    student doB->init(tempDate)
+    getline(parser, tempDate, ',')
+    student doG->init(tempDate)
+    getline(parser, tempHours)
+    parser.clear()
+    parser.str("")
+    parser << tempHours
+    parser >> student hours
 }

@@ -3,21 +3,21 @@
 #include "student.h"
 #include <iostream>
 
-//void testAddress();
+void testAddress();
 void testDate();
 
 int main(){
 	std::cout << "Hello!" << std::endl;
-	//testAddress();
+	testAddress();
 	testDate();
 	return 0;
 }
-/*
+
 void testAddress(){
 	Address a;
 	a.init("123 W Main St.", "Muncie", "IN", "47383");
 	a.printAddress();
-}*/
+}
 
 void testDate(){
 	Date d;
