@@ -32,3 +32,12 @@ printDate(){
 }
 
 Student:
+
+init(string student){
+    student studentString = student
+    stringstream parser
+    parser.str(studentString);
+    getline(parser, student lName, ',')
+    getline(parser, student fName, ',')
+    getline(parser, )
+}
