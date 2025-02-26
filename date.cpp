@@ -11,10 +11,27 @@ Date::Date(){
 
 void Date::init(std::string date){
 	Date::date = date;
-	// WIP
+	std::stringstream stream;
+	// I am fairly certain I need these variables for conversion
+	std::string sMonth;
+	std::string sDay;
+	std::string sYear;
+	stream.clear();
+	// Loading data into stream
+	stream.str(Date::date);
+	// Parsing data into individual chunks
+	getline(stream, sMonth, '/');
+	getline(stream, sDay, '/');
+	getline(stream, sYear, '/');
+	// Clearing since data has been parsed
+	stream.clear();
+	stream.str("");
+	// Converting to int
+	stream << sMonth << " " << sDay << " " << sYear;
+	stream >> Date::month >> Date::day >> Date::year;
 } // End init
 
 void Date::printDate(){
-	std::string months = {"null", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-	std::cout << months[month] << ", " << day << ", " << year << std::endl;
+	std::string months[] = {"null", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+	std::cout << months[Date::month] << " " << Date::day << ", " << Date::year << std::endl;
 } // End printdate
