@@ -19,7 +19,6 @@ init(date){
     getline(stream, sMonth, '/')
     getline(stream, sDay, '/')
     getline(stream, sYear)
-
     stream.clear()
     stream.str("")
     stream << sMonth << " " << sDay << " " << sYear
@@ -33,15 +32,17 @@ printDate(){
 
 Student:
 
-init(string student){
+void init(string student){
     student studentString = student
     stringstream parser
     string tempStreet
     string tempCity
     string tempState
     string tempZip
-    string tempDate
+    string tempDoB
+    string tempGradDate
     string tempHours
+
     parser.str(studentString);
     getline(parser, student lName, ',')
     getline(parser, student fName, ',')
@@ -49,14 +50,30 @@ init(string student){
     getline(parser, tempCity, ',')
     getline(parser, tempState, ',')
     getline(parser, tempZip, ',')
-    student address->init(tempStreet, tempCity, tempState, tempZip)
-    getline(parser, tempDate, ',')
-    student doB->init(tempDate)
-    getline(parser, tempDate, ',')
-    student doG->init(tempDate)
+    getline(parser, tempDoB, ',')
+    getline(parser, tempGradDate, ',')    
     getline(parser, tempHours)
+
+    student address->init(tempStreet, tempCity, tempState, tempZip)
+    student doB->init(tempDate)
+    student expectedGrad->init(tempDate)
+
     parser.clear()
-    parser.str("")
-    parser << tempHours
+    parser.str(tempHours)
     parser >> student hours
+}
+
+void printStudent(){
+    cout << fName << " " << lName << std::endl
+    address.printAddress()
+    cout << "DOB: "
+    doB.printDate()
+    cout << "Grad: "
+    expectedGrad.printDate()
+    cout << "Credits: " << hours
+}
+
+string getLastFirst(){
+    fullName = student lName + " " + student fName
+    return fullName
 }

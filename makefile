@@ -1,8 +1,11 @@
-student_heap: address.o date.o main.o
-	g++ -g address.o date.o main.o -o student_heap
+student_heap: address.o date.o main.o student.o
+	g++ -g address.o date.o main.o student.o -o student_heap
 
-main.o:
+main.o: main.cpp
 	g++ -c -g main.cpp
+
+student.o: student.h student.cpp
+	g++ -c -g student.cpp
 
 address.o: address.h address.cpp
 	g++ -c -g address.cpp
