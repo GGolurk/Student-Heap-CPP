@@ -2,6 +2,34 @@
 For the 'heap of students' assignment.
 
  - Algorithm:
+Main:
+    //Open the students.csv file
+    ifstream studentFile
+    studentFile.open("students.csv")
+    //Create a vector of Student pointers
+    std vector<Student> students;
+    //Load each student from a line in the CSV file
+    string readLine = "";
+    while(getline(studentFile, readLine)){
+        somehow create a unique class instance
+        class instance.init(readLine)
+        students.push_back(class instance)
+    }
+    //Present a menu to the user
+
+        //quit
+        exit the program
+        //print the names of all the students
+        void printAllName(){
+            for length of vector{
+                
+            }
+        }
+        //print the details of all the students
+        //search for a student
+    //The user will be able to choose from these three options
+    //When the user chooses to quit, the program cleans up the vector, closes the file, and exits
+
 
 Address:
 Extremely simple. No explanation required.
