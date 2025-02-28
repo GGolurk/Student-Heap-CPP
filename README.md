@@ -10,10 +10,11 @@ Main:
     std vector<Student> students;
     //Load each student from a line in the CSV file
     string readLine = "";
+    int counter = 0
     while(getline(studentFile, readLine)){
-        somehow create a unique class instance
-        class instance.init(readLine)
-        students.push_back(class instance)
+        Student* student = new Student
+        student[counter].init(readLine)
+        students.push_back(student[counter])
     }
     //Present a menu to the user
 
