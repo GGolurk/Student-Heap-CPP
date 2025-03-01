@@ -9,10 +9,10 @@ Main:
     //Create a vector of Student pointers
     std vector<Student> students;
     //Load each student from a line in the CSV file
+    Student* student = new Student[50];
     string readLine = "";
     int counter = 0
     while(getline(studentFile, readLine)){
-        Student* student = new Student
         student[counter].init(readLine)
         students.push_back(student[counter])
     }
@@ -30,6 +30,11 @@ Main:
         //search for a student
     //The user will be able to choose from these three options
     //When the user chooses to quit, the program cleans up the vector, closes the file, and exits
+    delete[] student;
+    for i in counter{
+        delete students[i];
+    }
+
 
 
 Address:

@@ -11,13 +11,12 @@ int main(){
 	std::vector<Student> students;
 	std::string readLine = "";
 	int counter = 0;
+	Student* student = new Student[50];
 	while(getline(studentFile, readLine)){
-		Student* student = new Student;
 		student[counter].init(readLine);
 		students.push_back(student[counter]);
+		counter++;
 	}
-	for(int i = 0; i < counter; i++){
-		delete students[i];
-	}
+	delete[] student;
 	studentFile.close();
 }
