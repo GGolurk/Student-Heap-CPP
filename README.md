@@ -3,42 +3,94 @@ For the 'heap of students' assignment.
 
  - Algorithm:
 Main:
-    //Open the students.csv file
-    ifstream studentFile
-    studentFile.open("students.csv")
-    
-    //Create a vector of Student pointers
-    std vector<Student> students;
+    function prototypes here
 
-    //Load each student from a line in the CSV file
-    string readLine = "";
-    while(getline(studentFile, readLine)){
-        Student* s = new Student
-        s->init(readLine)
-        students.push_back(s)
-    }
-
-    //Present a menu to the user
-
-        //quit
-        exit the program
-        for(Student* s: students){
-            delete s;
-        }
-        //print the names of all the students
-        void printAllName(){
-            for length of vector{
-                
+    int main{
+        vector<Student*> students
+        loadStudents(students)
+        bool keepGoing = true
+        while(keepGoing == true){
+            userInput = menu()
+            if(input = "0"){
+                keepGoing = false
+                delStudents(students)
+            } // End if
+            if(input = "1"){
+                showStudentNames(students)
+            } // End if
+            if(input = "2"){
+                printStudents(students)
+            }
+            if(input = "3"){
+                findStudent(students)
             }
         }
-        //print the details of all the students
-        //search for a student
-    //The user will be able to choose from these three options
-    //When the user chooses to quit, the program cleans up the vector, closes the file, and exits
-    delete[] student;
-    for i in counter{
-        delete students[i];
     }
+
+    void loadStudents(students vector ref){
+        file stream studentFile
+        studentFile.open("students.csv")
+        string readLine
+        // Loading data from file
+        while(getline(studentFile, readLine)){
+            Student* s = new Student;
+            s->init(readLine)
+            students.push_back(s)
+        } // End while
+    } // End loadStudents
+
+    void printStudents(student vector ref){
+        for(Student* s: student vector){
+            s->printStudent()
+        }
+    }
+
+    void showStudentNames(){
+        for(Student* s: student vector){
+            cout << s->getLastFirst() << std::endl
+        }
+    }
+
+    void findStudent(student vector){
+        bool found = false
+        cout << "Enter last name of student: " << std::endl
+        string query = ""
+        cin >> query
+        stringstream stream
+        for(Student* s: student vector){
+            stream.clear()
+            string last = ""
+            stream = s->getLastFirst()
+            getline(stream, last, ',')
+            if(query == last){
+                s->printStudent()
+                found = true
+            } // End if
+        } // End for
+        if(found == false){
+            cout << "No results found!" << std::endl
+        }
+    } // End findStudent
+
+    void delStudents(student vector ref){
+        for(Student* s: student vector){
+            delete s
+        }
+    }
+
+    string menu{
+        keepGoing = true
+        while(keepGoing == true){
+            cout << "0) quit" << std::endl << "1) print all student names" << std::endl << "2) print all student data" << std::endl << "3) find a student" << std::endl << std::endl << "Please choose 0-3: " << std::endl
+            cin >> input
+            if(input is 1, 2, or 3){
+                keepGoing = false
+            } else {
+                cout << "Invalid input!" << std::endl
+            }
+        }
+        return input
+    } // End menu
 
 
 
