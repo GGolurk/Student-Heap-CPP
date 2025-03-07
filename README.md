@@ -6,20 +6,25 @@ Main:
     //Open the students.csv file
     ifstream studentFile
     studentFile.open("students.csv")
+    
     //Create a vector of Student pointers
     std vector<Student> students;
+
     //Load each student from a line in the CSV file
-    Student* student = new Student[50];
     string readLine = "";
-    int counter = 0
     while(getline(studentFile, readLine)){
-        student[counter].init(readLine)
-        students.push_back(student[counter])
+        Student* s = new Student
+        s->init(readLine)
+        students.push_back(s)
     }
+
     //Present a menu to the user
 
         //quit
         exit the program
+        for(Student* s: students){
+            delete s;
+        }
         //print the names of all the students
         void printAllName(){
             for length of vector{

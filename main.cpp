@@ -5,18 +5,36 @@
 #include <vector>
 #include <fstream>
 
+void loadStudents(std::vector<Student*>& students);
+//void printStudents(std::vector<Student*>& students);
+//void showStudentNames(std::vector<Student*>& students);
+//void findStudent(std::vector<Student*>& students);
+void delStudents(std::vector<Student*>& students);
+//void menu();
+
 int main(){
+	std::vector<Student*> students;
+	loadStudents(students);
+	// Do stuff here!
+	delStudents(students);
+} // End main
+
+void loadStudents(std::vector<Student*>& students){
+	// Opening students.csv
 	std::ifstream studentFile;
 	studentFile.open("students.csv");
-	std::vector<Student> students;
 	std::string readLine = "";
-	int counter = 0;
-	Student* student = new Student[50];
+	// Loading data into student instances on the heap with pointers inside a vector
 	while(getline(studentFile, readLine)){
-		student[counter].init(readLine);
-		students.push_back(student[counter]);
-		counter++;
-	}
-	delete[] student;
+		Student* s = new Student;
+		s->init(readLine);
+		students.push_back(s);
+	} // End while
 	studentFile.close();
-}
+} // End loadStudents
+
+void delStudents(std::vector<Student*>& students){
+	for(Student* s: students){
+		delete s;
+	} // End for
+} // End delStudents
