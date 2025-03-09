@@ -10,8 +10,8 @@ Main:
         loadStudents(students)
         bool keepGoing = true
         while(keepGoing == true){
-            userInput = menu()
-            if(input = "0"){
+            string userInput = menu()
+            if(userInput == "0"){
                 keepGoing = false
                 delStudents(students)
             } // End if
@@ -80,10 +80,10 @@ Main:
 
     string menu{
         keepGoing = true
+        cout << "0) quit" << std::endl << "1) print all student names" << std::endl << "2) print all student data" << std::endl << "3) find a student" << std::endl << std::endl << "Please choose 0-3: " << std::endl
         while(keepGoing == true){
-            cout << "0) quit" << std::endl << "1) print all student names" << std::endl << "2) print all student data" << std::endl << "3) find a student" << std::endl << std::endl << "Please choose 0-3: " << std::endl
             cin >> input
-            if(input is 1, 2, or 3){
+            if(input is 0, 1, 2, or 3){
                 keepGoing = false
             } else {
                 cout << "Invalid input!" << std::endl
