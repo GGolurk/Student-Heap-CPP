@@ -4,11 +4,12 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <sstream>
 
 void loadStudents(std::vector<Student*>& students);
 void printStudents(std::vector<Student*>& students);
 void showStudentNames(std::vector<Student*>& students);
-//void findStudent(std::vector<Student*>& students);
+void findStudent(std::vector<Student*>& students);
 void delStudents(std::vector<Student*>& students);
 std::string menu();
 
@@ -29,7 +30,7 @@ int main(){
 			printStudents(students);
 		} // End if print data
 		if(userInput == "3"){
-			
+			findStudent(students);
 		} // End if find student
 	} // End while
 } // End main
@@ -60,6 +61,30 @@ void showStudentNames(std::vector<Student*>& students){
 	} // End for
 } // End showStudentNames
 
+void findStudent(std::vector<Student*>& students){
+	bool found = false;
+	// Getting input
+	std::cout << "Enter last name of student: ";
+	std::string query = "";
+	std::cin >> query;
+	std::cout << std::endl;
+	// Finding student
+	std::stringstream stream;
+	for(Student* s: students){
+		stream.clear();
+		std::string last =  "";
+		stream.str(s->getLastFirst());
+		getline(stream, last, ',');
+		if(query == last){
+			s->printStudent();
+			found = true;
+		} // End if
+	} // End for
+	if(found == false){
+		std::cout << "No results found!" << std::endl;
+	}
+} // End findStudent
+
 void delStudents(std::vector<Student*>& students){
 	for(Student* s: students){
 		delete s;
@@ -69,9 +94,10 @@ void delStudents(std::vector<Student*>& students){
 std::string menu(){
 	bool keepGoing = true;
 	std::string input = "";
-	std::cout << "0) quit" << std::endl << "1) print all student names" << std::endl << "2) print all student data" << std::endl << "3) find a student" << std::endl << std::endl << "Please choose 0-3: " << std::endl;
+	std::cout << "0) quit" << std::endl << "1) print all student names" << std::endl << "2) print all student data" << std::endl << "3) find a student" << std::endl << std::endl << "Please choose 0-3: ";
 	while(keepGoing == true){	
 		std::cin >> input;
+		std::cout << std::endl;
 		// Input validation
 		if(input != "0"){
 			if(input != "1"){

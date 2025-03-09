@@ -135,8 +135,8 @@ void init(string student){
     string tempHours
 
     parser.str(studentString);
-    getline(parser, student lName, ',')
     getline(parser, student fName, ',')
+    getline(parser, student lName, ',')
     getline(parser, tempStreet, ',')
     getline(parser, tempCity, ',')
     getline(parser, tempState, ',')
@@ -165,6 +165,6 @@ void printStudent(){
 }
 
 string getLastFirst(){
-    fullName = student lName + " " + student fName
+    fullName = student lName + ", " + student fName
     return fullName
 }

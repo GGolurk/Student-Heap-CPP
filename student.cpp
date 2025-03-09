@@ -25,8 +25,8 @@ void Student::init(std::string data){
 	std::string tempHours = "";
 	// Parsing data.
 	parser.str(data);
-	getline(parser, Student::lName, ',');
 	getline(parser, Student::fName, ',');
+	getline(parser, Student::lName, ',');
 	getline(parser, tempStreet, ',');
 	getline(parser, tempCity, ',');
 	getline(parser, tempState, ',');
@@ -45,7 +45,7 @@ void Student::init(std::string data){
 }
 
 std::string Student::getLastFirst(){
-	std::string fullName = Student::lName + " " + Student::fName;
+	std::string fullName = Student::lName + ", " + Student::fName;
 	return fullName;	
 }
 
